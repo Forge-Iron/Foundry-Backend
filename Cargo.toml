@@ -5,3 +5,4 @@ authors = ["Samuel Resendez <saresend@usc.edu>"]
 
 [dependencies]
 rouille = "0.1.3"
+diesel = { version = "1.0.0", features = ["sqlite", "chrono"] }
