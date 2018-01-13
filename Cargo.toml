@@ -1,0 +1,7 @@
+[package]
+name = "foundry-backend"
+version = "0.1.0"
+authors = ["Samuel Resendez <saresend@usc.edu>"]
+
+[dependencies]
+rouille = "0.1.3"
