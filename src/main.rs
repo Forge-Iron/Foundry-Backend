@@ -9,9 +9,10 @@ extern crate serde_derive;
 extern crate serde;
 extern crate serde_json;
 
-
+extern crate rustc_serialize;
 extern crate dotenv;
-
+#[macro_use]
+extern crate rouille;
 
 mod schema;
 mod models;
@@ -19,6 +20,9 @@ mod handlers;
 mod database;
 
 
+use rouille::{Request, Response};
+
 fn main() {
-    println!("Hello, world!");
+    println!("Starting server on port: 8000");
+    rouille::start_server("0.0.0.0:8000", move |request| Response::text("Hello world"));
 }

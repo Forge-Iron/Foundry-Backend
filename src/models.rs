@@ -11,6 +11,7 @@ pub struct GitPerson {
 }
 
 #[derive(Queryable)]
+#[derive(RustcEncodable)]
 #[derive(Serialize)]
 pub struct GitIssue {
     id: i32,
