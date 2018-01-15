@@ -8,7 +8,7 @@ use diesel::prelude::*;
 use schema::*;
 
 
-fn get_issues(request: &Request) -> Response {
+pub fn get_issues(request: &Request) -> Response {
 
     let connection = get_database_connection();
     let issue_list = issue::table.load::<GitIssue>(&connection).unwrap();

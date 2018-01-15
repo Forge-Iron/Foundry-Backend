@@ -20,9 +20,23 @@ mod handlers;
 mod database;
 
 
-use rouille::{Request, Response};
+use rouille::Request;
+use rouille::Response;
 
 fn main() {
     println!("Starting server on port: 8000");
-    rouille::start_server("0.0.0.0:8000", move |request| Response::text("Hello world"));
+    rouille::start_server("0.0.0.0:8000", move |request| dispatch(&request));
+}
+
+fn dispatch(req: &Request) -> Response {
+
+    router!(req, 
+            (GET) (/get_issues) => {
+
+                handlers::get_issues(req)
+            },
+
+            _ => Response::empty_400()
+            )
+
 }
