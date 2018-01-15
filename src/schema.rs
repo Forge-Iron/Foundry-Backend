@@ -1,5 +1,5 @@
 table! {
-    Issue (id) {
+    issue (id) {
         id -> Integer,
         title -> Text,
         body -> Text,
@@ -8,7 +8,7 @@ table! {
 }
 
 table! {
-    IssueResource (id) {
+    issue_resource (id) {
         id -> Integer,
         url -> Text,
         title -> Text,
@@ -17,12 +17,12 @@ table! {
 }
 
 table! {
-    Person (id) {
+    person (id) {
         id -> Integer,
         name -> Text,
         email -> Text,
     }
 }
 
-joinable!(Issue -> Person (mentor));
-joinable!(IssueResource -> Issue (issue));
+joinable!(issue -> person (mentor));
+joinable!(issue_resource -> issue (issue));
